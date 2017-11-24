@@ -101,6 +101,6 @@ public class Film {
     private List<Film> directors = new ArrayList<Film>();
 
     @ManyToMany(cascade = CascadeType.ALL)
-    private List<Film>  films = new ArrayList<>();
+    private List<Film> films = new ArrayList<>();
 }
 
