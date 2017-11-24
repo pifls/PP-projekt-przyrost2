@@ -1,5 +1,7 @@
 package hibernate.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,18 +13,23 @@ public class Director {
 
     @Id
     @GeneratedValue
+    @JsonProperty
     @Column(name = "dir_id")
     private int dir_id;
 
+    @JsonProperty
     @Column(name = "name")
     private String name;
 
+    @JsonProperty
     @Column(name = "surname")
     private String surname;
 
-    @Column(name = "age") 
+    @JsonProperty
+    @Column(name = "age")
     private int age;
 
+    @JsonProperty
     @Column(name = "nationality")
     private String nationality;
 
@@ -84,5 +91,16 @@ public class Director {
     @JoinColumn(name="dir_id", referencedColumnName = "id")
     Director director;
 
+
+    @OneToOne(mappedBy = "director", optional = false)
+    private Film film;
+
+    public Film getFilm() {
+        return film;
+    }
+
+    public void setFilm(Film film) {
+        this.film = film;
+    }
 }
 

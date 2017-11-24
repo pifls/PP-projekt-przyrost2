@@ -1,6 +1,7 @@
 package hibernate;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import hibernate.model.Director;
 import hibernate.model.Film;
 import hibernate.queries.Queries;
@@ -9,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.io.File;
+import java.time.ZonedDateTime;
 
 class Manager {
 
@@ -71,6 +73,10 @@ class Manager {
             Film dir_2 = entityManager.find(Film.class, dir2.getDir_id());
 
 
+            ZonedDateTime zonedDateTime = ZonedDateTime.now();
+            System.out.println(zonedDateTime);
+
+
 
             ObjectMapper mapper = new ObjectMapper();
 
@@ -79,6 +85,21 @@ class Manager {
             mapper.writeValue(new File("film.json"), film2);
             mapper.writeValue(new File("dir.json"), dir1);
             mapper.writeValue(new File("dir.json"), dir2);
+
+
+
+            XmlMapper mapperX = new XmlMapper();
+
+            //Object to XML in file
+            mapperX.writeValue(new File("film.xml"), film1);
+            mapperX.writeValue(new File("film.xml"), film2);
+            mapperX.writeValue(new File("dir.xml"), dir1);
+            mapperX.writeValue(new File("dir.xml"), dir2);
+
+            System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(film1));
+            System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(film2));
+            System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(dir1));
+            System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(dir2));
 
 
 

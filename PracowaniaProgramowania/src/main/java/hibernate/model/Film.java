@@ -1,8 +1,9 @@
 package hibernate.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -11,18 +12,23 @@ public class Film {
 
     @Id
     @GeneratedValue
+    @JsonProperty
     @Column(name = "id")
     private int id;
 
+    @JsonProperty
     @Column(name = "title")
     private String title;
 
+    @JsonProperty
     @Column(name = "year")
     private int year;
 
+    @JsonProperty
     @Column(name = "genre")
     private String genre;
 
+    @JsonProperty
     @Column(name = "country")
     private String country;
 
@@ -88,7 +94,7 @@ public class Film {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id", referencedColumnName = "dir_id")
-    public Director director;
+    private Director director;
 
 
     @ManyToMany(mappedBy = "films", cascade = CascadeType.ALL)
