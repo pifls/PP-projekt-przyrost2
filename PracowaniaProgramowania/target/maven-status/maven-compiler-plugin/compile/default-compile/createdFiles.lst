@@ -1,0 +1,14 @@
+hibernate\Manager.class
+second\debug\EvaluateExpressions.class
+second\shortcuts\InterfaceOne.class
+second\shortcuts\ClassThatHaveItAll.class
+hibernate\model\Employee.class
+second\debug\hidden\ObjectMaker.class
+second\shortcuts\ClassThatHaveItAllBis.class
+second\debug\hidden\ObjectAnalyzer.class
+second\debug\hidden\MakeThings.class
+second\debug\ConditionalBreak.class
+hibernate\queries\Queries.class
+example\HelloWorld.class
+second\junit\AdvanceMath.class
+second\debug\Breakpoints.class
