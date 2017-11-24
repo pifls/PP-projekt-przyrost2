@@ -20,7 +20,7 @@ public class Director {
     @Column(name = "surname")
     private String surname;
 
-    @Column(name = "age")
+    @Column(name = "age") 
     private int age;
 
     @Column(name = "nationality")
